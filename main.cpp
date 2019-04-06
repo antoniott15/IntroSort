@@ -11,7 +11,7 @@ void introsort(int[], int *, int *, int);
 
 int main()
 {
-    int a[] = {5, 7, -8, 9, 10, 4, -7, 0, -12, 1, 6, 2, 3, -4, -15, 12};
+    int a[] = {3,4,12,5,83,23,43,21,42,45,62,91};
     int n = sizeof(a) / sizeof(a[0]);
     int maxCValues = log(n) * 2;
 
