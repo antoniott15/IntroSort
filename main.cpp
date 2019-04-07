@@ -4,7 +4,7 @@
 using namespace std;
 
 int partition(int, int, int);
-void InsertionSort();
+void InsertionSort(int[], int, int);
 int randPartition(int[], int, int);
 void HeapSort();
 void introsort(int[], int *, int *, int);
@@ -39,8 +39,19 @@ int partition(int a[], int low, int high)
     return pIndex;
 }
 
-void InsertionSort()
+void InsertionSort(int a[], int low, int high)
 {
+    for (int i = low + 1; i <= high; i++)
+    {
+        int value = a[i];
+        int j = i;
+        while (j > low && a[j - 1] > value)
+        {
+            a[j] = a[j - 1];
+            j--;
+        }
+        a[j] = value;
+    }
 }
 
 int randPartition(int a[], int low, int high)
