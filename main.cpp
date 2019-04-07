@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-int partition();
+int partition(int, int, int);
 void InsertionSort();
 int randPartition(int[], int, int);
 void HeapSort();
@@ -11,7 +11,7 @@ void introsort(int[], int *, int *, int);
 
 int main()
 {
-    int a[] = {3,4,12,5,83,23,43,21,42,45,62,91};
+    int a[] = {3, 4, 12, 5, 83, 23, 43, 21, 42, 45, 62, 91};
     int n = sizeof(a) / sizeof(a[0]);
     int maxCValues = log(n) * 2;
 
@@ -23,9 +23,20 @@ int main()
     return 0;
 }
 
-int partition()
+int partition(int a[], int low, int high)
 {
-    return 0;
+    int pivot = a[high];
+    int pIndex = low;
+    for (int i = low; i < high; i++)
+    {
+        if (a[i] <= pivot)
+        {
+            swap(a[i], a[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(a[pIndex], a[high]);
+    return pIndex;
 }
 
 void InsertionSort()
