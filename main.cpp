@@ -6,7 +6,7 @@ using namespace std;
 int partition(int, int, int);
 void InsertionSort(int[], int, int);
 int randPartition(int[], int, int);
-void HeapSort();
+void HeapSort(int *, int *);
 void introsort(int[], int *, int *, int);
 
 int main()
@@ -61,8 +61,10 @@ int randPartition(int a[], int low, int high)
     return partition(a, low, high);
 }
 
-void HeapSort()
+void HeapSort(int *begin, int *end)
 {
+    make_heap(begin, end);
+    sort_heap(begin, end);
 }
 
 void introsort(int a[], int *begin, int *end, int maxCValues)
