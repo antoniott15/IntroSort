@@ -3,15 +3,19 @@
 #include <cmath>
 using namespace std;
 
-int partition();
-void InsertionSort();
+int partition(int, int, int);
+void InsertionSort(int[], int, int);
 int randPartition(int[], int, int);
-void HeapSort();
+void HeapSort(int *, int *);
 void introsort(int[], int *, int *, int);
 
 int main()
 {
+<<<<<<< HEAD
     int a[] = {3,4,12,5,83,23,43,21,42,45,62,91};
+=======
+    int a[] = {3, 4, 12, 5, 83, 23, 43, 21, 42, 45, 62, 91};
+>>>>>>> develop
     int n = sizeof(a) / sizeof(a[0]);
     int maxCValues = log(n) * 2;
 
@@ -23,13 +27,35 @@ int main()
     return 0;
 }
 
-int partition()
+int partition(int a[], int low, int high)
 {
-    return 0;
+    int pivot = a[high];
+    int pIndex = low;
+    for (int i = low; i < high; i++)
+    {
+        if (a[i] <= pivot)
+        {
+            swap(a[i], a[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(a[pIndex], a[high]);
+    return pIndex;
 }
 
-void InsertionSort()
+void InsertionSort(int a[], int low, int high)
 {
+    for (int i = low + 1; i <= high; i++)
+    {
+        int value = a[i];
+        int j = i;
+        while (j > low && a[j - 1] > value)
+        {
+            a[j] = a[j - 1];
+            j--;
+        }
+        a[j] = value;
+    }
 }
 
 int randPartition(int a[], int low, int high)
@@ -39,8 +65,10 @@ int randPartition(int a[], int low, int high)
     return partition(a, low, high);
 }
 
-void HeapSort()
+void HeapSort(int *begin, int *end)
 {
+    make_heap(begin, end);
+    sort_heap(begin, end);
 }
 
 void introsort(int a[], int *begin, int *end, int maxCValues)
